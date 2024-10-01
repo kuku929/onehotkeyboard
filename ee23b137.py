@@ -9,15 +9,15 @@
 #               parameters:
 #               - mesh_granularity: 1000 will give a finer heatmap,
 #                                   current is 100
-#               - maxsize: 10000 will allow for longer typing heatmaps
-#                              current is 5000
 #
 ###################################################################
 import string
+import argparse
 import xml.etree.ElementTree as ET
 from enum import Enum
 from xml.etree.ElementTree import Element
 
+import matplotlib.colors as colors
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 import numpy as np
@@ -407,22 +407,25 @@ class Painter:
         # this will be animated and drawn on top
         # of the static image 
 
-	# NOTE: decrease this value if
-	# the heatmap is rendered slowly 
-	# on your machine. A value of 
-	# 100 is ideal but on windows
-	# it lags a bit on my machine at least
-        mesh_granularity = 100
+    	# NOTE: decrease this value if
+    	# the heatmap is rendered slowly 
+    	# on your machine. A value of 
+    	# 100 is ideal but on windows
+    	# it lags a bit on my machine at least
+        mesh_granularity = 1000
         self.xi, self.yi = np.mgrid[
             -1 : self.xmax : (self.xmax * mesh_granularity)**0.5 * 1j, -1 : self.ymax : (self.ymax * mesh_granularity)**0.5 * 1j
         ]
         
         # the intensity at the start is assumed to be zero
+        # hard coding the expected bounds of the heatmap
+        # we will clip all values greater than this bound
+        bounds = np.linspace(0, 0.07, 10)
+        norm = colors.BoundaryNorm(boundaries=bounds, ncolors=256,clip=True)
         self.zi = np.zeros(self.xi.shape)
         self.im = self.ax.pcolormesh(
             self.xi, self.yi, self.zi, alpha= 0.7, cmap=self.cmap, zorder=1,
-            vmin = 0,
-            vmax = 0.2,
+            norm= norm,
             animated=True
         )
         
@@ -443,7 +446,7 @@ class Painter:
         resulting in more density near pos
         and gradually decreasing farther away
         """
-        points = 10 # the no of points
+        points = 1 # the no of points
         distance = 0.1 # radius
         delta = 2  # radius*=delta
         while distance < 1:
@@ -497,18 +500,18 @@ class Painter:
         # once all the points in the heatmap are updated, draw it
         x = np.array(self.heatmap_pointsx)
         y = np.array(self.heatmap_pointsy)
-
+        
         # we drop points once the size of the array
         # gets larger that maxsize
         # a larger value means the heatmap is more
         # gradual in change thus capturing more keypresses
         # while smaller size means the heatmap changes
         # fast and looks really cool 
-        maxsize = 5000
+        maxsize = 3000
         if maxsize < x.size:
             x = np.delete(x, np.s_[0 : x.size - maxsize])
             y = np.delete(y, np.s_[0 : y.size - maxsize])
-
+            
         # produces a gaussian distribution 
         # based on the density of the points
         k = gaussian_kde(np.vstack([x, y]))
@@ -681,7 +684,13 @@ def main():
 	  	    ****************************************
 
 preparing a keyboard for you...""")
-    parser = xmlParser("kbd.xml")
+    cmdparser = argparse.ArgumentParser(
+        prog='onehotkeyboard',
+        description='keyboard heatmap generator',
+    )
+    cmdparser.add_argument('filename')
+    args = cmdparser.parse_args()
+    parser = xmlParser(args.filename)
     painter = Painter(parser.keymap, parser.shift_mapping, parser.home_row)
     asyncio = AsyncIO()
     print("Start Typing, press Enter to stop...")

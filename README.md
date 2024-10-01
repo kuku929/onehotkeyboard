@@ -114,7 +114,11 @@ I am using a custom xml format for easy parsing and defining of the
 layout, this allows me to specify a great deal of detail in a widely
 supported format which can be read by other programming languages as
 well. Given the time constraints I have not implemented these ideas, but
-I list them here:
+I list them here: Two example formats have been provided. `kbd.xml`
+implements the classic QWERTY layout and `split.xml` implements a split
+keyboard layout. While writing your own keyboard format do note some of
+the escape sequences you would have to use for certain keys like
+&,$<, >$ etc. Look at the example formats for further referance.
 
 - specify UI elements like size and color of the keys and heatmap.
 
