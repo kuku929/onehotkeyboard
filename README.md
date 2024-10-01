@@ -8,7 +8,7 @@ for analyzing typing patterns or for applications like keyboard layout
 optimization.
 
 <figure>
-<img src="heatmap_final.png" style="width:20cm" />
+<img src="heatmap.png" style="width:20cm" />
 <figcaption>Heatmap</figcaption>
 </figure>
 
