@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<kbd name="qwerty keyboard">
+    <!-- Row 1: Numbers and special characters -->
+    <!-- there are some escape sequences one may need to use while defining keys,
+    I am listing them here for ready referance:
+     & = &amp;
+     " = &quot;
+     < = &lt;
+     > = &gt; -->
+     
+    <row id='row1'>
+        <key lower="`" upper="~">
+            <pos><x>0</x><y>0</y></pos>
+        </key>
+        <key lower="1" upper="!">
+            <pos><x>1</x><y>0</y></pos>
+        </key>
+        <key lower="2" upper="@">
+            <pos><x>2</x><y>0</y></pos>
+        </key>
+        <key lower="3" upper="#">
+            <pos><x>3</x><y>0</y></pos>
+        </key>
+        <key lower="4" upper="$">
+            <pos><x>4</x><y>0</y></pos>
+        </key>
+        <key lower="5" upper="%">
+            <pos><x>5</x><y>0</y></pos>
+        </key>
+        <key lower="6" upper="^">
+            <pos><x>6</x><y>0</y></pos>
+        </key>
+        <key lower="7" upper="&amp;">
+            <pos><x>7</x><y>0</y></pos>
+        </key>
+        <key lower="8" upper="*">
+            <pos><x>8</x><y>0</y></pos>
+        </key>
+        <key lower="9" upper="(">
+            <pos><x>9</x><y>0</y></pos>
+        </key>
+        <key lower="0" upper=")">
+            <pos><x>10</x><y>0</y></pos>
+        </key>
+        <key lower="-" upper="_">
+            <pos><x>11</x><y>0</y></pos>
+        </key>
+        <key lower="=" upper="+">
+            <pos><x>12</x><y>0</y></pos>
+        </key>
+        <key lower="Backspace">
+            <pos><x>13</x><y>0</y></pos>
+        </key>
+    </row>
+
+    <!-- Row 2: qwerty row -->
+    <row id='row2'>
+        <key lower="q" upper="Q">
+            <pos><x>0.5</x><y>1</y></pos>
+        </key>
+        <key lower="w" upper="W">
+            <pos><x>1.5</x><y>1</y></pos>
+        </key>
+        <key lower="e" upper="E">
+            <pos><x>2.5</x><y>1</y></pos>
+        </key>
+        <key lower="r" upper="R">
+            <pos><x>3.5</x><y>1</y></pos>
+        </key>
+        <key lower="t" upper="T">
+            <pos><x>4.5</x><y>1</y></pos>
+        </key>
+        <key lower="y" upper="Y">
+            <pos><x>5.5</x><y>1</y></pos>
+        </key>
+        <key lower="u" upper="U">
+            <pos><x>6.5</x><y>1</y></pos>
+        </key>
+        <key lower="i" upper="I">
+            <pos><x>7.5</x><y>1</y></pos>
+        </key>
+        <key lower="o" upper="O">
+            <pos><x>8.5</x><y>1</y></pos>
+        </key>
+        <key lower="p" upper="P">
+            <pos><x>9.5</x><y>1</y></pos>
+        </key>
+        <key lower="[" upper="{">
+            <pos><x>10.5</x><y>1</y></pos>
+        </key>
+        <key lower="]" upper="}">
+            <pos><x>11.5</x><y>1</y></pos>
+        </key>
+        <key lower="\" upper="|">
+            <pos><x>12.5</x><y>1</y></pos>
+        </key>
+    </row>
+
+    <!-- Row 3: asdf row -->
+    <row id='row3'>
+        <key lower="a" upper="A">
+            <pos><x>0.75</x><y>2</y></pos>
+        </key>
+        <key lower="s" upper="S">
+            <pos><x>1.75</x><y>2</y></pos>
+        </key>
+        <key lower="d" upper="D">
+            <pos><x>2.75</x><y>2</y></pos>
+        </key>
+        <key lower="f" upper="F">
+            <pos><x>3.75</x><y>2</y></pos>
+        </key>
+        <key lower="g" upper="G">
+            <pos><x>4.75</x><y>2</y></pos>
+        </key>
+        <key lower="h" upper="H">
+            <pos><x>5.75</x><y>2</y></pos>
+        </key>
+        <key lower="j" upper="J">
+            <pos><x>6.75</x><y>2</y></pos>
+        </key>
+        <key lower="k" upper="K">
+            <pos><x>7.75</x><y>2</y></pos>
+        </key>
+        <key lower="l" upper="L">
+            <pos><x>8.75</x><y>2</y></pos>
+        </key>
+        <key lower=";" upper=":">
+            <pos><x>9.75</x><y>2</y></pos>
+        </key>
+        <key lower="'" upper="&quot;">
+            <pos><x>10.75</x><y>2</y></pos>
+        </key>
+        <key lower="Enter">
+            <pos><x>12</x><y>2</y></pos>
+        </key>
+    </row>
+
+    <!-- Row 4: zxcvbnm row -->
+    <!-- NOTE: home row needs to be specified -->
+    <row id='home'> 
+        <key lower="z" upper="Z">
+            <pos><x>1.25</x><y>3</y></pos>
+        </key>
+        <key lower="x" upper="X">
+            <pos><x>2.25</x><y>3</y></pos>
+        </key>
+        <key lower="c" upper="C">
+            <pos><x>3.25</x><y>3</y></pos>
+        </key>
+        <key lower="v" upper="V">
+            <pos><x>4.25</x><y>3</y></pos>
+        </key>
+        <key lower="b" upper="B">
+            <pos><x>5.25</x><y>3</y></pos>
+        </key>
+        <key lower="n" upper="N">
+            <modifier>"left"</modifier>
+            <pos><x>6.25</x><y>3</y></pos>
+        </key>
+        <key lower="m" upper="M">
+            <pos><x>7.25</x><y>3</y></pos>
+        </key>
+        <key lower="," upper="&lt;">
+            <pos><x>8.25</x><y>3</y></pos>
+        </key>
+        <key lower="." upper="&gt;">
+            <pos><x>9.25</x><y>3</y></pos>
+        </key>
+        <key lower="/" upper="?">
+            <pos><x>10.25</x><y>3</y></pos>
+        </key>
+    </row>
+
+    <!-- Special keys -->
+    <row id='special_keys'>
+        <key lower="Shift_L">
+            <pos><x>0</x><y>3</y></pos>
+        </key>
+        <key lower="Shift_R">
+            <pos><x>11.25</x><y>3</y></pos>
+        </key>
+        <key lower="CapsLock">
+            <pos><x>0</x><y>2</y></pos>
+        </key>
+        <key lower="Tab">
+            <pos><x>0</x><y>1</y></pos>
+        </key>
+    </row>
+
+    <!-- Space bar -->
+    <!-- you can specify keys in the same row at different
+    places as well! -->
+    <row id='home'>
+        <key lower="Space">
+            <pos><x>3.5</x><y>4</y></pos>
+        </key>
+    </row>
+</kbd>
